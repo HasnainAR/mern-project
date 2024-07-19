@@ -26,19 +26,21 @@ export const Navbar = () => {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/about">About</NavLink>
+        
+              <NavLink to="/login">login</NavLink>
             </li>
             <li>
-              <NavLink to="/contact">Contact</NavLink>
-            </li>
-            <li>
+          
               <NavLink to="/register">Register</NavLink>
+            </li>
+            <li>
+            <NavLink to="/contact">Contact</NavLink>
             </li>
             <li>
               <NavLink to="/service">Service</NavLink>
             </li>
             <li>
-              <NavLink to="/login">login</NavLink>
+            <NavLink to="/about">About</NavLink>
             </li>
           </ul>
         </nav>
