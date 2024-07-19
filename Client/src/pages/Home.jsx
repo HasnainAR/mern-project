@@ -54,11 +54,11 @@ function Home() {
                             <h2>50+</h2>
                             <p>well known developers</p>
                         </div>
+                    
                         <div className="div1">
-                            <h2>50+</h2>
-                            <p>registered companies</p>
+                            <h2>24/7</h2>
+                            <p>service</p>
                         </div>
-                        
                     </div>
                 </section>
           
