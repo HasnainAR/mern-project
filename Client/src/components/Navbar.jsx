@@ -14,7 +14,7 @@ export const Navbar = () => {
         }}
       >
         <div className="logo-brand">
-          <a href="/">Hasnain</a>
+          <a>Hasnain</a>
         </div>
         <nav>
           <ul style={{
