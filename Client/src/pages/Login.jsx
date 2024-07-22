@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom"
+import { jwtDecode } from "jwt-decode";
+
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -16,9 +19,46 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); //avoid refresh
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // avoid refresh
+    try {
+        const response = await fetch('http://localhost:5000/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        });
+
+        if (response.ok) {
+            const res_data = await response.json();
+            console.log(res_data);
+
+            // Get the token from the response and decode it
+            const token = res_data.token;
+            const decodedToken = jwtDecode(token);
+
+            // Extract user data from the decoded token
+            const { userId, email, name, phone, isAdmin } = decodedToken;
+            console.log({ userId, email, name, phone, isAdmin });
+
+            // Optionally store user data in state or context
+            setUser({
+                email: "",
+                password: "",
+            });
+
+            // Navigate to a protected route or homepage
+            navigate('/protected');
+
+        } else {
+            const error_data = await response.json();
+            console.error('Login error:', error_data);
+        }
+    } catch (error) {
+        console.log('register', error);
+    }
+};
 
   return (
     <>
